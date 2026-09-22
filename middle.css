@@ -35,4 +35,3 @@
 .explorer-result .mission strong{color:#338f85}
 .explorer-fine-print{max-width:680px;color:#68788b;font-size:.86rem;line-height:1.5}
 @media(max-width:560px){.explorer-header{padding:20px}.explorer-shell{border-radius:23px}.explorer-answer{padding:15px}.explorer-result{grid-template-columns:1fr;gap:10px}.explorer-home{font-size:.85rem}}
-
