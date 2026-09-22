@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Purdue Engineering Outreach activities that help students explore how engineers solve real community problems." />
+    <title>Engineer Quest | Purdue Engineering Outreach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="games.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero" id="home">
+        <nav aria-label="Primary navigation">
+          <a class="brand" href="#home"><span class="brand-mark">⚙</span> PEO · Engineer Quest</a>
+          <a class="nav-link" href="#how-it-works">How it works</a>
+        </nav>
+        <div class="hero-content">
+          <p class="eyebrow">A Purdue Engineering Outreach adventure</p>
+          <h1>Real problems need your big ideas.</h1>
+          <p class="hero-copy">Meet someone who needs help. Build an idea. Test what happens. Then make it better—just like an engineer.</p>
+          <a class="button button-primary" href="#choose-track">Start exploring <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="mascot" aria-hidden="true"><div class="antenna"></div><div class="face"><i></i><i></i><b>⌣</b></div><div class="mascot-body">★</div><span class="speech">Let’s go!</span></div>
+        <div class="orb orb-one" aria-hidden="true"></div><div class="orb orb-two" aria-hidden="true"></div>
+      </section>
+
+      <section class="tracks" id="choose-track" aria-labelledby="tracks-heading">
+        <div class="section-intro"><p class="eyebrow">Choose your experience</p><h2 id="tracks-heading">Engineering grows with you.</h2><p>Start with a hands-on mission or explore what to learn next. There are no permanent labels here.</p></div>
+        <div class="track-grid">
+          <button class="track-card elementary" data-track="elementary"><span class="track-icon">🚀</span><span class="track-age">Elementary school</span><strong>Big Idea Builder</strong><span>Help your community with a playful design adventure.</span><span class="card-arrow" aria-hidden="true">Start building →</span></button>
+          <button class="track-card middle" data-track="middle"><span class="track-icon">🤖</span><span class="track-age">Grades 6–8</span><strong>Engineering Explorer</strong><span>Find the kinds of engineering problems you may enjoy solving.</span><span class="card-arrow" aria-hidden="true">Explore my interests →</span></button>
+          <button class="track-card high" data-track="high"><span class="track-icon">🧭</span><span class="track-age">Grades 9–12</span><strong>Pathway Finder</strong><span>Explore Purdue engineering areas that fit your interests.</span><span class="card-arrow" aria-hidden="true">Find pathways →</span></button>
+        </div>
+      </section>
+
+      <section class="how" id="how-it-works"><div><p class="eyebrow">No pressure, just curiosity</p><h2>There’s more than one way to think like an engineer.</h2></div><ol><li><span>01</span> Meet a person with a real problem.</li><li><span>02</span> Build and test your idea.</li><li><span>03</span> Learn from what happened and improve it.</li></ol></section>
+    </main>
+
+    <dialog class="quiz-dialog" id="quiz-dialog" aria-labelledby="quiz-title">
+      <button class="close" id="close-dialog" aria-label="Close quiz">×</button>
+      <div id="quiz-content"></div>
+    </dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
