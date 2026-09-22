@@ -52,6 +52,18 @@ function showIntro() {
   root.querySelector('#begin').addEventListener('click', () => { step = 0; showQuestion(); });
 }
 
+function selectAnswer(index) {
+  answers[step] = index;
+  root.querySelectorAll('[data-answer]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.answer) === index)));
+  root.querySelector('#next').disabled = false;
+}
+
+function advanceQuestion() {
+  if (answers[step] === null) return;
+  if (step === questions.length - 1) showResults();
+  else { step++; showQuestion(); }
+}
+
 function showQuestion() {
   const [question, options] = questions[step];
   root.innerHTML = `<section class="explorer-shell">
@@ -63,16 +75,28 @@ function showQuestion() {
       ${options.map(([label], index) => `<button class="explorer-answer" type="button" data-answer="${index}" aria-pressed="${answers[step] === index}"><span class="explorer-letter" aria-hidden="true">${String.fromCharCode(65 + index)}</span><span>${label}</span></button>`).join('')}
     </div>
     <div class="explorer-actions"><button class="explorer-back" type="button" id="back">← ${step === 0 ? 'Introduction' : 'Previous question'}</button><button class="button button-primary explorer-next" type="button" id="next" ${answers[step] === null ? 'disabled' : ''}>${step === questions.length - 1 ? 'See my areas' : 'Next question'} <span aria-hidden="true">→</span></button></div>
+    <p class="explorer-keyboard-hint">Tip: press Enter after choosing an answer to continue.</p>
   </section>`;
-  root.querySelectorAll('[data-answer]').forEach(button => button.addEventListener('click', () => {
-    answers[step] = Number(button.dataset.answer);
-    root.querySelectorAll('[data-answer]').forEach(option => option.setAttribute('aria-pressed', String(option === button)));
-    root.querySelector('#next').disabled = false;
-  }));
+  root.querySelectorAll('[data-answer]').forEach(button => button.addEventListener('click', () => selectAnswer(Number(button.dataset.answer))));
   root.querySelector('#back').addEventListener('click', () => { if (step === 0) showIntro(); else { step--; showQuestion(); } });
-  root.querySelector('#next').addEventListener('click', () => { if (answers[step] === null) return; if (step === questions.length - 1) showResults(); else { step++; showQuestion(); } });
+  root.querySelector('#next').addEventListener('click', advanceQuestion);
   focusHeading();
 }
+
+root.addEventListener('keydown', event => {
+  if (event.key !== 'Enter' || !root.querySelector('#next')) return;
+  const target = event.target;
+  if (!(target instanceof HTMLElement)) return;
+  const answer = target.closest('[data-answer]');
+  if (answer) {
+    event.preventDefault();
+    selectAnswer(Number(answer.dataset.answer));
+    advanceQuestion();
+  } else if (!target.closest('button, a') && answers[step] !== null) {
+    event.preventDefault();
+    advanceQuestion();
+  }
+});
 
 function showResults() {
   const available = Object.fromEntries(Object.keys(pathways).map(code => [code, 0]));

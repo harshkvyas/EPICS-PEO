@@ -24,6 +24,7 @@
 .explorer-back{padding:12px 0;border:0;background:transparent;color:var(--ink);font-weight:800;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
 .explorer-next{border:0;cursor:pointer}
 .explorer-next:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.explorer-keyboard-hint{margin:15px 0 0;color:#68788b;font-size:.85rem;line-height:1.4}
 .explorer-result-intro{max-width:680px;color:#526276;font-size:1.1rem;line-height:1.6}
 .explorer-results{display:grid;gap:15px;margin:28px 0 22px;padding:0;list-style:none}
 .explorer-result{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:22px;border:2px solid var(--line);border-radius:20px;background:#fff}
