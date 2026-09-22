@@ -3,17 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mini Mission Lab | Engineer Quest</title>
+    <title>K–5 Engineering Adventures | Engineer Quest</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="games.css" />
     <link rel="stylesheet" href="mini-games.css" />
+    <link rel="stylesheet" href="elementary-adventures.css" />
+    <link rel="stylesheet" href="kid-adventures.css" />
   </head>
   <body class="quest-page game-page">
     <header class="quest-header"><a class="brand quest-brand" href="index.html"><span class="brand-mark">⚙</span> PEO · Engineer Quest</a><a href="index.html">Exit missions</a></header>
-    <main class="quest-main" id="quest" aria-live="polite"></main>
+    <main class="quest-main" id="quest"></main>
+    <dialog class="notebook-dialog" id="notebook-dialog" aria-labelledby="notebook-title"></dialog>
+    <script src="missions-data.js"></script>
+    <script src="scene-renderer.js"></script>
     <script src="elementary.js"></script>
   </body>
 </html>
