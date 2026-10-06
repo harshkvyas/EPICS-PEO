@@ -100,7 +100,7 @@ function scene(){
   return '<svg class="bridge-scene" viewBox="0 0 960 460" role="group" aria-label="Build and test your bridge over the creek"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#c6e8ef"/><stop offset="1" stop-color="#edf5dd"/></linearGradient><linearGradient id="water" x2="0" y2="1"><stop stop-color="#6bb4b9"/><stop offset="1" stop-color="#2d819a"/></linearGradient><pattern id="ripples" width="90" height="30" patternUnits="userSpaceOnUse"><path d="M5 15q15 8 30 0t30 0" fill="none" stroke="#c1ebdf" stroke-width="2" opacity=".5"/></pattern></defs><rect width="960" height="460" fill="url(#sky)"/><circle cx="815" cy="67" r="32" fill="#f9dda0"/><g fill="#fff" opacity=".7"><path d="M70 76Q76 53 99 63Q120 41 145 69Q169 63 176 81H70Z"/><path d="M575 65Q583 48 601 57Q619 37 639 61Q666 50 673 72H575Z"/></g><path d="M0 232L86 155L147 206L246 103L370 221L491 151L626 235L746 133L866 226L960 161V310H0Z" fill="#b2cbb2"/><path d="M0 272Q146 183 315 261T618 252T960 230V325H0Z" fill="#769e7a"/><path d="M0 316Q215 264 429 309T960 294V460H0Z" fill="url(#water)"/><path d="M0 322Q215 272 429 318T960 303V460H0Z" fill="url(#ripples)"/><path d="M0 268H176L195 301L166 352L185 460H0Z" fill="#739253"/><path d="M960 268H784L765 303L797 351L780 460H960Z" fill="#739253"/><path d="M0 291H174L180 305L162 325H0ZM960 291H786L780 305L798 325H960Z" fill="#b3a38b"/><g fill="#587546"><path d="M65 160l-30 66h60Z"/><path d="M888 151l-32 75h64Z"/></g><g stroke="#775b3f" stroke-width="8"><path d="M65 215V270M888 215V270"/></g><g transform="translate(818 262)"><rect x="0" y="-9" width="89" height="6" rx="2" fill="#805f3f"/><path d="M5-6V28M83-6V28" stroke="#805f3f" stroke-width="4"/><text x="44" y="-20" text-anchor="middle" class="garden-label">Garden</text><g fill="#d68447"><path d="M15-10l4 13 5-13Z"/><path d="M52-10l4 13 5-13Z"/></g><path d="M19-10v-16M56-10v-16" stroke="#47774e" stroke-width="3"/><circle cx="72" cy="-28" r="8" fill="#f4c45d"/><path d="M72-21V-8" stroke="#47774e" stroke-width="3"/></g>'+bridgeStructure()+'<g id="crossing-load" transform="translate(124 280)" aria-label="'+load.name+'">'+vehicleArt()+'</g><g class="section-labels">'+[0,1,2].map(bay=>'<text x="'+(280+bay*200)+'" y="433" text-anchor="middle">'+bayNames[bay]+'</text>').join('')+'</g></svg>';
 }
 function nextHint(){
-  if(result?.tooShort)return 'A beam is too short for this creek. Try the triangle truss.';
+  if(result?.tooShort)return loadLevel===3?'This creek needs a longer bridge. Try the stone arch or cable bridge.':'A beam is too short for this creek. Try the triangle truss.';
   if(result?.poorGround)return 'An arch pushes out into the banks. These soft banks cannot hold it.';
   const incomplete=missingStructure();if(incomplete.length)return 'Connect the structure first: add '+incomplete[0].toLowerCase()+'.';
   const weak=firstWeakBay();
@@ -150,7 +150,7 @@ function enablePieceDrag(button){
     if(!drag)return;
     const held=drag;drag=null;
     if(!held.started)return;
-    suppressClick=true;
+    suppressClick=!cancelled;
     held.ghost.remove();held.target.classList.remove('drop-target','drop-ready');
     lab.querySelector('.bridge-scene')?.classList.remove('placing-piece');button.classList.remove('piece-picked-up');
     const rect=held.target.getBoundingClientRect();
