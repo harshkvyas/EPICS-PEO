@@ -1,0 +1,98 @@
+/* Purdue Brand Studio: primary palette and approved system font alternatives.
+   Game scenes and their meaningful material/status colors remain in game CSS. */
+:root {
+  --ink: #000; --gold: #cfb991; --paper: #fff; --orange: #6b5129;
+  --teal: #8e6f3e; --mist: #f5f2eb; --line: #d5cbbc;
+  --brand-body: "Acumin Pro", "Franklin Gothic", "Franklin Gothic Medium", Arial, sans-serif;
+  --brand-serif: "Source Serif Pro", Georgia, serif;
+}
+body { font-family: var(--brand-body); color: #000; background: #fff; }
+h1, h2, .track-card strong, .pathway-results h4,
+.mission-card strong, .mission-group-heading h2,
+.reasoning-callout h3, .college-next h3 { font-family: var(--brand-serif); letter-spacing: -.025em; }
+.hero { background: #000; min-height: 580px; border-bottom: 8px solid #cfb991; }
+.hero::after { background: #cfb991; opacity: .08; border-radius: 0; transform: skewX(-13deg); }
+.hero-content { margin-top: 86px; max-width: 720px; }
+.hero-copy { color: #fff; }
+.orb { display: none; }
+.antenna { background: #cfb991; }
+.mascot { filter: none; }
+.mascot-body { background: #cfb991; color: #000; }
+.hero nav, .quest-header, .explorer-header, .high-header { gap: 20px; }
+.quest-header, .game-page .quest-header, .explorer-header, .high-header { background: #000; border-bottom: 4px solid #cfb991; }
+.brand, .quest-brand, .quest-header a:last-child, .explorer-home, .high-home { color: #fff; }
+.brand { letter-spacing: 0; font-weight: 700; }
+.brand-mark { background: #cfb991; color: #000; border-radius: 0; }
+.brand-name { display: inline-flex; flex-direction: column; gap: 3px; vertical-align: middle; }
+.brand-name small { color: #cfb991; font-size: .75rem; line-height: 1.3; letter-spacing: .035em; }
+.eyebrow, .quiz-progress, .result-tag, .quiz-round, .explorer-meta { color: #6b5129; }
+.hero .eyebrow { color: #cfb991; }
+.button { border-radius: 4px; box-shadow: none; min-height: 48px; }
+.button-primary { background: #cfb991; color: #000; border: 2px solid #cfb991; }
+.button-primary:hover { background: #ebd99f; border-color: #000; }
+.restart { background: #000; color: #fff; }
+.tracks { padding-top: 76px; padding-bottom: 76px; }
+.track-card { border-radius: 4px; border-color: #c4bfc0; border-top: 5px solid #cfb991; }
+.track-card:hover, .track-card:focus-visible { transform: translateY(-4px); box-shadow: 0 8px 22px #00000014; border-color: #8e6f3e; }
+.elementary .track-icon, .middle .track-icon, .high .track-icon { background: #f5f2eb; border-radius: 4px; }
+.track-age, .section-intro>p:last-child, .track-card>span:not(.track-icon):not(.track-age):not(.card-arrow),
+.result-text, .next-list, .disclaimer, .pathway-results p, .pathway-detail dd,
+.explorer-lead, .explorer-result-intro, .explorer-result p, .explorer-result-details dd,
+.explorer-fine-print, .explorer-keyboard-hint, .quiz-nav, .hub-copy, .hub-footnote,
+.mission-group-heading p, .mission-finish>p { color: #555960; }
+.how { background: #f5f2eb; border-top: 1px solid #d5cbbc; }
+.how li { border-color: #cfb991; }
+.how li span { border-radius: 4px; }
+.quiz-dialog, .explorer-shell, .high-main { border-radius: 8px; box-shadow: 0 14px 42px #00000014; }
+.quiz-dialog::backdrop { background: #000a; }
+.quest-page, .game-page, .explorer-page, .high-page { background: #f5f2eb; }
+.explorer-shell, .high-main, .mission-hub, .mini-shell { background: #fff; color: #000; border: 1px solid #d5cbbc; border-radius: 8px; box-shadow: 0 12px 36px #00000012; }
+.explorer-intro-mark, .explorer-note, .major-compare, .college-next,
+.pathway-detail, .explorer-result-details, .reasoning-callout { background: #f5f2eb; border-color: #d5cbbc; border-radius: 4px; }
+.pathway-detail dt, .explorer-result-details dt, .explorer-result .mission strong,
+.field-connection strong, .major-compare>strong, .major-compare b, .reasoning-review span { color: #6b5129; }
+.college-next a, .major-guide a { color: #000; text-underline-offset: 3px; }
+.quiz-progress-track, .explorer-progress { background: #e5e1da; }
+.quiz-progress-track span, .explorer-progress span { background: #8e6f3e; }
+.answer, .explorer-answer, .pathway-results>li, .explorer-result { border-radius: 4px; }
+.answer:hover, .answer:focus-visible, .explorer-answer:hover, .explorer-answer:focus-visible { background: #f5f2eb; border-color: #8e6f3e; outline-color: #8e6f3e; }
+.answer[aria-pressed="true"], .explorer-answer[aria-pressed="true"], .reasoning-answer[aria-pressed="true"],
+.explorer-result:nth-child(1) { background: #f5f2eb; border-color: #8e6f3e; box-shadow: none; }
+.explorer-letter { background: #f5f2eb; color: #000; }
+.explorer-answer[aria-pressed="true"] .explorer-letter { background: #000; color: #fff; }
+.answer-evidence { border-color: #8e6f3e; }
+.mission-hub .mission-card { display: flex; flex-direction: column; align-items: flex-start; background: #fff; color: #000; border: 1px solid #d5cbbc; border-top: 4px solid #cfb991; border-radius: 4px; }
+.mission-hub .mission-card::after { display: none; }
+.mission-hub .mission-card>b { position: static; margin-top: auto; padding-top: 18px; }
+.mission-hub .mission-major { width: 100%; }
+.mission-hub .mission-card:hover { box-shadow: 0 8px 22px #00000014; }
+.mission-hub .mission-icon, .group-icon, .hub-rule, .mission-note { background: #f5f2eb; border-radius: 4px; }
+.mission-hub .mission-card p, .mission-group-heading small { color: #555960; }
+.mission-card-status { color: #6b5129; background: #f5f2eb; }
+.hub-progress { border-color: #cfb991; color: #000; background: #f5f2eb; box-shadow: none; }
+.major-guide { background: #f5f2eb; border-color: #d5cbbc; border-radius: 4px; }
+.mini-topbar { gap: 12px; flex-wrap: wrap; color: #000; }
+.mini-back, .mini-reset { color: #000; }
+.mission-major { display: block; margin-top: 16px; padding-top: 12px; border-top: 1px solid #d5cbbc; font-size: .875rem; font-weight: 700; line-height: 1.4; color: #000; }
+.mission-major small { display: block; margin-bottom: 4px; color: #6b5129; font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.purdue-connection { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin: 24px 0; padding: 20px; border-left: 4px solid #cfb991; background: #f5f2eb; color: #000; text-align: left; }
+.connection-label { display: block; margin-bottom: 6px; font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #6b5129; }
+.purdue-connection strong { display: block; font-size: 1.125rem; line-height: 1.4; }
+.purdue-connection p { margin: 8px 0 0; max-width: 620px; font-size: .9375rem; line-height: 1.5; color: #555960; }
+.purdue-connection a { flex: none; max-width: 190px; padding: 8px 0; color: #000; font-size: .875rem; font-weight: 700; text-underline-offset: 4px; }
+.bridge-lab>.purdue-connection { margin: 0; padding: 20px 54px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+button:focus-visible, a:focus-visible, summary:focus-visible,
+.track-card:focus-visible, .answer:focus-visible, .button:focus-visible, .close:focus-visible,
+.quiz-back:focus-visible, .major-guide summary:focus-visible { outline: 3px solid #8e6f3e; outline-offset: 4px; }
+.quest-header a:focus-visible, .explorer-header a:focus-visible, .high-header a:focus-visible, .hero nav a:focus-visible { outline-color: #cfb991; }
+@media(max-width:720px) {
+  .hero { min-height: 540px; }
+  .hero-content { margin-top: 65px; }
+  .tracks { padding-top: 52px; padding-bottom: 52px; }
+  .purdue-connection { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
+  .purdue-connection a { max-width: none; }
+  .bridge-lab>.purdue-connection { padding: 20px; }
+  .brand-name small { max-width: 180px; }
+  .quest-header, .explorer-header, .high-header { padding: 18px 20px; }
+}
