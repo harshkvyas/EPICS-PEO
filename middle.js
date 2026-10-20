@@ -118,16 +118,28 @@ function showResults() {
   const top = Object.keys(pathways).filter(code => selected[code] > 0)
     .sort((a, b) => selected[b] / available[b] - selected[a] / available[a] || selected[b] - selected[a] || Object.keys(pathways).indexOf(a) - Object.keys(pathways).indexOf(b))
     .slice(0, 3);
+  const resultsText = [
+    'Your Grades 6–8 Engineering Explorer results',
+    '',
+    'Here are three engineering areas to explore:',
+    '',
+    ...top.map((code, index) => `${index + 1}. ${pathways[code][0]}\n${pathways[code][1]}\nTry this: ${pathways[code][2]}`),
+    '',
+    'This is an interest explorer, not a test of your skills or a career recommendation.'
+  ].join('\n');
   root.innerHTML = `<section class="explorer-shell">
     <p class="eyebrow">Your exploration starter</p>
     <h1 tabindex="-1">Here are three areas to explore.</h1>
     <p class="explorer-result-intro">Your choices show what interests you today. Engineers often work across several areas, so treat these as ideas to try, not permanent labels.</p>
     <ol class="explorer-results">${top.map((code, index) => `<li class="explorer-result"><span class="explorer-rank" aria-label="Area ${index + 1}">${index + 1}</span><div><h2>${pathways[code][0]}</h2><p>${pathways[code][1]}</p><p class="mission"><strong>Try this:</strong> ${pathways[code][2]}</p></div></li>`).join('')}</ol>
     <p class="explorer-fine-print">This is an interest explorer, not a test of your skills or a career recommendation. Try another activity to see what else you enjoy.</p>
+    ${EmailResults.form('Grades 6–8 · Engineering Explorer')}
     <button class="button button-primary explorer-next" type="button" id="restart">Explore again <span aria-hidden="true">↻</span></button>
   </section>`;
+  EmailResults.bind(root, 'Grades 6–8 · Engineering Explorer', resultsText);
   root.querySelector('#restart').addEventListener('click', () => { answers.fill(null); showIntro(); focusHeading(); });
   focusHeading();
 }
 
 showIntro();
+
